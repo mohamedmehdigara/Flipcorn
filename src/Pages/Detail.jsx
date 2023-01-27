@@ -9,12 +9,17 @@ const Detail = () => {
     state: { tv },
   } = useContext(contextApi);
 
+  // box array for seat
   const box = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20,
   ];
 
   return (
-    <section className="max_width px-4 grid md:grid-cols-2 lg:grid-cols-3 h-full md:h-screen place-items-center py-10 gap-4 py-auto">
+    <section
+      className={`max_width px-4 grid md:grid-cols-2 lg:grid-cols-3 h-screen place-items-center pt-10 gap-4 ${
+        show ? "overflow-hidden" : ""
+      }`}
+    >
       {/* img section  */}
       <div className="h-[25rem] md:h-[35rem]">
         <img
@@ -62,7 +67,7 @@ const Detail = () => {
             {tv.show.summary.replace(/(<([^>]+)>)/gi, "")}
           </p>
         </div>
-        <div className="text-para_text px-2">
+        <div className="text-para_text px-2 pb-10">
           <h1 className="text-white font-bold text-xl mb-1">DETAILS:</h1>
           <p>Status: {tv.show.status}</p>
           <p>First air date: {tv.show.premiered || "Unknown"}</p>
@@ -80,7 +85,7 @@ const Detail = () => {
           >
             <RxCross2 />
           </div>
-          <div className="max-w-[40rem] mx-auto border border-para_text rounded-lg p-5 ">
+          <section className="max-w-[40rem] mx-auto border border-para_text rounded-lg p-5 ">
             <h1 className="text-center font-bold text-4xl pb-5 ">
               Booking Details
             </h1>
@@ -101,7 +106,7 @@ const Detail = () => {
                 Submit
               </button>
             </Link>
-          </div>
+          </section>
         </form>
       )}
     </section>
