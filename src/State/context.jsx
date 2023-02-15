@@ -1,4 +1,4 @@
-import { createContext, useReducer } from "react";
+import React,{ createContext, useReducer } from "react";
 import { initialState, reducer } from "./Reducer";
 
 export const contextApi = createContext();
